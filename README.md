@@ -22,6 +22,8 @@ Features Implemented:
 
 7. Roommate Search: Customers can search for roommates either who are already leased or the customers who are not yet leased.
 
+Technologies Used:
+Java Spring Boot , Hibernate, mysql, Junit with Mockito, Thymeleaf template engine, css,js,jQuery
 
 This is a team project. Members who contributed to this project are:
 1. Vishnu Vardhan Oliveti
