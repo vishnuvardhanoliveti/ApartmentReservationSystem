@@ -7,6 +7,7 @@ Registered Customer: The customer can save his/her apartment search preferences 
 
 
 Features Implemented:
+
 1.Apartment Search Preferences: A registered customer or visiting customer can search the apartments based on their preferences like pets, utilities etc.
 
 2. Background Verification application: A customer can submit his details like SSN, occupation etc. which are used by the administrator for background verification.
