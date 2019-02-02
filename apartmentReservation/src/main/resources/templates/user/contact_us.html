@@ -1,0 +1,42 @@
+<!-- This page displays the contact us details of the company -->
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar"></nav>
+		<div style="height:200px"></div>
+		
+		<div class='container well well-lg'>
+			<div class="row vdivide">
+				<div class="col-md-4" style="height:150px">
+					<h3 class="h3"><span class="glyphicon glyphicon-home"></span> Address</h3>
+					<p>1400 Dallas Drive,<br>
+				 	Denton,<br>
+				 	TX 76205</p>
+				</div>
+				
+				<div class="col-md-4" style="height:150px">
+					<h3 class="h3"><span class="glyphicon glyphicon-time"></span> Office Hours</h3>
+					<p>Monday – Friday</p>
+					<p>9:00 am – 5:30 pm</p>
+				</div>
+				
+				<div class="col-md-4" style="height:150px">
+					<h3 class="h3"><span class="glyphicon glyphicon-earphone"></span> Contact Information</h3>
+					<p>Phone: (832) 757-9180</p>
+					<p>Fax: (832) 757-9180</p>
+				</div>
+			</div>
+		</div>	
+		
+		
+		
+		
+		<div style="height:10px"></div>
+		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>
+		
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!-- This page displays the customer home page -->
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar"></nav>
+		<div class="container">
+		<h1>Roommate Requests</h1>
+		<div th:switch="${display_serviceProtal}">
+	
+	<div class="col-md-3"><a  href='/viewSentRequests/' class="btn btn-primary btn-block">View Sent Requests</a></div>
+	<div class="col-md-3"><a  href='/viewRequests/' class="btn btn-primary btn-block">View Received Request</a>
+				</div>
+				</div>
+				
+</div>
+		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>	
+	</body>
+	
+</html>

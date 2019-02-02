@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles">
+</head>
+<body>
+<nav th:replace="template::navbar">	</nav>
+<div class="container-fluid">
+	<div class="row well">
+		<div class="col-md-12 form-inline">
+			<h3 class ="form-group formHeading">Issue Applications</h3>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+  <div class="table-responsive">
+  	<table class="table table-striped">
+		<thead>
+			<tr>
+			    <th>Address</th>
+			    <th>Issue Type</th>
+			     <th>Issue Status</th>
+			    <th></th>
+		 	</tr>
+	 	</thead>
+	 	<tbody>
+			<tr th:each="applic : ${issueapplications}">
+				<td th:text="${applic. getIssueAddress()}"></td>
+				<td th:text="${applic. getIssueType()}"></td>
+				<td th:text="${applic. getIssueStatus()}"></td>
+				<td><a class="btn btn-primary btn-block"  th:href="@{'/issueInDetail/'+${applic.getIssueId()}}">View issue Application</a></td>
+			</tr>
+		</tbody>
+	 </table>
+	
+  </div>
+</div>
+
+ <div th:replace ="template :: footer"></div>
+</body>
+</html>

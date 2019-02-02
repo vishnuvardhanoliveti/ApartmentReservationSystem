@@ -1,0 +1,109 @@
+<!-- Page that displays the properties based on the apartment search preferences set -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles"></head>
+<body>
+<nav th:replace="template::navbar">	</nav>
+ <div class="container-fluid">
+ 
+ 
+		
+		<div th:each="applic : ${userdetails}" class="container panel panel-primary">
+		<div class="row panel-heading">
+			<div class="col-md-12 ">
+				<h3 class="panel-title titleFont" th:text="' Requested User Details '"></h3>
+			</div>
+		</div>
+		<div style="height:30px"></div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">First Name</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getFirstName()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">Last name</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getLastName()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">Email</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getEmail()}" disabled>
+		        </div>
+		        
+			</div>
+			<div class="row">
+			      <div class="col-md-4 field-label-responsive">
+			        <label for="dob">Date of Birth</label>
+			      </div>
+			       <div class="col-md-8 form-group">
+				       <input type="date" id="dob" name="dob" class="form-control" th:value="${applic.getDob()}" disabled>
+			      </div>
+   		  </div>
+   			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Phone no</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="phone"
+		                                th:placeholder="${applic.getPhoneNumber()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Gender</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="phone"
+		                                th:placeholder="${applic.getGender()}" disabled>
+		        </div>
+			</div>
+		<div class="row" >
+		<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Preferences</label>
+				</div>
+	<div class="col-md-3">
+	<span hidden id="viewRequestDetailsApplicationId" th:text="${applic.getId()}"></span>
+ <a class="btn btn-primary btn-block" id="viewMatchedRequests">View Matched Request</a>
+ </div>
+ 	</div>	
+ 	<span th:switch="${acceptoption}">
+	<span th:case="'yes'">
+<div class="row" >
+	<div class="col-md-3">
+ <a class="btn btn-primary btn-block"  th:href="@{'/updateRequestStatus/'+${requestedUserEmail}+'/'+accepted}">Accept</a>
+ <a class="btn btn-primary btn-block"  th:href="@{'/updateRequestStatus/'+${requestedUserEmail}+'/'+rejected}">Reject</a>
+ 	</div>
+ 	</div>
+ 	</span>
+ 	<span th:case="'no'">
+ 	<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Request Status</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="phone"
+		                                th:placeholder="${acceptstatus}" disabled>
+		                                </div>
+		                                </div>
+ 	
+ 	</span>
+ </div>
+   <div class="modalHolder"></div>
+ <button th:replace="template :: scrollToTop"></button>
+<footer th:replace ="template :: footer"></footer></body>
+
+</html>

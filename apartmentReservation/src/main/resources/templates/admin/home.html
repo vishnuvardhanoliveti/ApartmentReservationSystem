@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar">	</nav>
+ 		<div class="container">
+ 
+  			<h3>Hello <span th:utext="${userName}"></span>, this is your home page.</h3>
+  			<p>You may view applications submitted towards leasing your properties by clicking the the "View Applications" tab.</p>
+ 		</div>
+ 		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>
+	</body>
+</html>

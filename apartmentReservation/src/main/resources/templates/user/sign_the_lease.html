@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles"></head>
+<body>
+<nav th:replace="template::navbar">	</nav>
+ <div class="container">
+  <div>
+ <h3 align='center'>Sign the lease</h3><span th:text="${prop}" ></span>
+ 
+ <table>
+  <tr th:each="property : ${prop}">
+  	<td th:text="${property.getPropertyName()}"></td>
+  </tr>
+ </table>
+<div >
+ <form th:action="@{'/signthelease/'}" method="post" >
+  <p>
+ Terms and Conditions<br>
+1.Utilities and Services.<br/>
+1.1 Usage and Other Charges. <br/>
+You may use utilities only for normal household purposes and must not waste them. If your electricity is interrupted, you must use only batteryoperated lighting (no flames). 
+You must not allow any utilities(other than cable or Internet) to be cut off or switched for any reason—including disconnection for not paying
+your bills—until the Lease term or renewal period ends. You must connect utilities in your name and you must notify
+the provider of your move-out date so the meter can be timely read. If you delay getting it turned on in your
+name by the Lease’s start date or cause it to be transferred back into our name before you surrender or abandon the
+dwelling, you’ll be liable for a $__________ charge (not to exceed $50 per billing period), plus the actual or estimated
+cost of the utilities used while the utility should have been billed to you. If you’re in an area open to competition and
+your dwelling is individually metered, you may choose or change your retail electric provider at any time. If you qualify,
+your provider will be the same as ours, unless you choose a different provider. If you do choose or change your provider,
+you must give us written notice. <br><br>
+
+1.2 Yard Maintenance.<br>
+Unless Par. 9 says otherwise, you will be responsible for and pay for the following items: mowing
+and edging the lawn and maintaining all plants, trees, shrubs, etc.; watering the lawn and other vegetation; keeping
+the lawn, flowerbeds, sidewalks, porches and driveways free of trash and debris; and fertilizing lawn and plants.
+You must promptly report infestations or dying vegetation to us. <br><br>
+
+
+2. Damages and Reimbursement.<br>
+2.1 Damage in the Dwelling. You must promptly pay or reimburse
+us for loss, damage, consequential damages, government
+fines or charges, or cost of repairs or service in the
+dwelling because of a Lease or rules violation; improper
+use; negligence; other conduct by you, your invitees, your
+occupants, or your guests; or any other cause not due to
+our negligence or fault as allowed by law, except for damages
+by acts of God to the extent they couldn’t be mitigated
+by your action or inaction.<br><br>
+
+2.2 Indemnification by You. You’ll defend, indemnify and
+hold us harmless from all liability arising from your
+conduct or that of your invitees, your occupants, your
+guests, or our representatives who at your request perform
+services not contemplated in this Lease.<br><br>
+
+
+
+
+3. Contractual Lien and Property Left in the Dwelling.<br>
+3.1 Lien Against Your Property for Rent.<br>
+ All property in the dwelling (unless exempt under Texas Property Code
+sec. 54.042) is subject to a contractual lien to secure payment
+of delinquent rent (except as prohibited by Texas
+Government Code sec. 2306.6738, for owners supported
+by housing-tax-credit allocations). For this purpose,
+“dwelling” excludes outside areas but includes the interior
+living areas and exterior patios, balconies, attached garages,
+and any storerooms for your exclusive use.<br><br>
+
+3.2 Removal After We Exercise Lien for Rent.<br>
+ If your rent
+is delinquent, our representative may peacefully enter
+the dwelling and remove and/or store all property subject
+to lien. All property in the dwelling is presumed to
+be yours unless proved otherwise. After the property is
+removed, a written notice of entry must be left in a conspicuous
+place in the dwelling—including a list of items removed,
+the amount of delinquent rent due, and the name,
+address, and phone number of the person to contact. The
+notice must also state that the property will be promptly
+returned when the delinquent rent is fully paid.<br><br>
+
+3.3 Disposition or Sale.
+(A) Our options. Except for animals, we may throw away
+or give to a charitable organization all personal property
+that is:
+(1) left in the dwelling after surrender, abandonment,
+or death of a sole resident; or
+
+(2) left outside more than 1 hour after writ of possession
+is executed, following judicial eviction.
+
+3. Failing to Pay First Month’s Rent. If you don’t pay the first
+month’s rent when or before the Lease begins, all future rent for
+the Lease term will be automatically accelerated without notice
+and become immediately due. We also may end your right of
+occupancy and recover damages, future rent, reletting charges,
+attorney’s fees, court costs, and other lawful charges. Our
+rights, remedies and duties under Par. 10 and 32 apply to acceleration
+under this paragraph.<br><br>
+
+
+
+ 
+
+4. Requests, Repairs, and Malfunctions.<br>
+4.1 Written Requests Required. We‘ll maintain the dwelling
+in good order and pay for repair and maintenance subject
+to the repair procedures set forth in this Lease. You must
+replace air-conditioning filters monthly and keep the yard
+clean. If you or any occupant needs to send a notice or
+request—for example, for repairs, installations, services,
+ownership disclosure, or security-related matters—it
+must be written, signed, and delivered to our designated
+representative in accordance with our policies (except
+in case of fire, smoke, gas, explosion, overflowing sewage,
+uncontrollable running water, electrical shorts, crime in
+progress, or fair-housing accommodation or modification).
+<br><br>
+4.2 Required Notifications. You must promptly notify us in
+writing of water leaks, mold, electrical problems, malfunctioning
+lights, broken or missing locks or latches, and other
+conditions that pose a hazard to property, health, or safety.<br><br>
+4.3 Utilities. We may change or install utility lines or equipment
+serving the dwelling if the work is done reasonably
+without substantially increasing your utility costs. We may
+turn off equipment and interrupt utilities as needed to
+avoid property damage or to perform work. If utilities malfunction
+or are damaged by fire, water, or similar cause,
+you must notify our representative immediately.<br><br>
+
+
+
+
+
+  </p>
+  <div class="col-75">
+        <input type="text" id="sign" name="sign" placeholder="Your initials..">
+      </div>
+ <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+  </form>
+ </div>
+ </div>
+ </div>
+ <div style="height:10px"></div>
+ <button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>
+</body>
+</html>

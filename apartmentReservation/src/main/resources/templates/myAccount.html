@@ -1,0 +1,103 @@
+<!-- This page displays the Account Management page.Here the users can change their phone numbers etc.
+@Author:Vishnu Vardhan Oliveti
+Created on: October 31st,2018
+-->
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar"></nav>
+		
+		
+		<div class="container">
+	    	<form class="form-horizontal" role="form" method="POST" th:action="@{/myAccount}" th:object="${user}">
+		    	<div class="row">
+		        	
+		            <div class="col-md-12">
+		            	<div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+		     			</div>
+		            </div>
+		         </div>
+		         <div class="row">
+		             <div class="col-md-3"></div>
+		             <div class="col-md-9">
+		                 <h2>Edit Account Details</h2>
+		             </div>
+		         </div>
+		         
+		        
+		         <div class="row">
+		             <div class="col-md-3 field-label-responsive">
+		                 <label for="phoneNumber">Phone Number</label>
+		             </div>
+		             <div class="col-md-6 form-group">
+		                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  th:field="*{phoneNumber}" class="form-control" id="phone" placeholder="123-456-7890" required autofocus>
+		             </div>
+		         </div>
+		         
+		        
+		         
+		         <div class="row">
+		             <div class="col-md-3 field-label-responsive">
+		                 <label for="addressLine1">Address Line 1</label>
+		             </div>
+		             <div class="col-md-6 form-group">
+		                 <input type="text" th:field="*{addressLine1}"class="form-control" id="addressLine1"
+		                          placeholder="Address Line 1"   required autofocus>
+		             </div>
+		         </div>
+	             <div class="row">
+		             <div class="col-md-3 field-label-responsive">
+		                 <label for="addressLine2">Address Line 2</label>
+		             </div>
+		             <div class="col-md-6 form-group">
+		                 <input type="text"  th:field="*{addressLine2}"class="form-control" id="addressLine2"
+		                          placeholder="Address Line 2" required autofocus>
+		             </div>
+	             </div>
+	             <div class="row">
+		             <div class="col-md-3 field-label-responsive">
+		                 <label for="city">City</label>
+		             </div>
+		             <div class="col-md-6 form-group">
+		                 <input type="text" th:field="*{city}" class="form-control" id="city"
+		                          placeholder="City"   required autofocus>
+		             </div>
+	             </div>
+	             <div class="row">
+		             <div class="col-md-3 field-label-responsive">
+		                 <label for="state">State</label>
+		             </div>
+		             <div class="col-md-6 form-group">
+		                 <input type="text"  th:field="*{state}"class="form-control" id="state"
+		                         placeholder="State" required autofocus>
+		             </div>
+	             </div>
+	             <div class="row">
+		             <div class="col-md-3 field-label-responsive">
+		                 <label for="zip">Zip</label>
+		             </div>
+		             <div class="col-md-6 form-group">
+		                  <input type="text" th:field="*{zip}" class="form-control" id="zip"
+		                          placeholder="Zip"  required autofocus>
+		             </div>
+	             </div>
+		         <div class="row">
+		             <div class="col-md-3  field-label-responsive"></div>
+		             <div class="col-md-6 form-group">
+		                 <button type="submit" class="btn btn-success btn-block"> Edit</button>
+		             </div>
+		         </div>
+		     </form>
+		 </div>
+		
+		
+		
+		<div style="height:10px"></div>
+		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>
+		
+	</body>
+</html>

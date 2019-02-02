@@ -1,0 +1,57 @@
+<!-- This page displays the customer home page -->
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar"></nav>
+		
+	<div class="container panel panel-primary">
+		<div class="row panel-heading">
+			<div class="col-md-12 ">
+				<h3 class="panel-title titleFont">New Issue Request</h3>
+			</div>
+		</div>
+		<div style="height:10px"></div>
+		<form class="form-horizontal" role="form" th:action="@{'/serviceIssuePortalCreateRequest/'}" method="post">
+		    <div class="row">
+		      <div class="col-md-4 field-label-responsive">
+		        <label for="Category">Category</label>
+		      </div>
+		      <div class="col-md-8 form-group">
+			      <select class="form-control" id="issueType" name="issueType" required>
+				    <option value="">---Select---</option>
+				    <option value="Plumbing">Plumbing</option>
+				    <option value="HVAC">HVAC</option>
+				    <option value="Electrical Appliances">Electrical Appliances </option>
+				    <option value="Others"> Others</option>
+			   	 </select>
+		      </div>
+		    </div>
+		    
+		    
+		    <div class="row">
+		      <div class="col-md-4 field-label-responsive">
+		        <label for="textBox"></label>
+		      </div>
+		      <div class="col-md-8 form-group">
+			      	<div  id='textBox' style="display:none;">
+			    		<textarea class="form-control" rows="4" cols="50"  name="issueDescription" placeholder="Explain the Issue in detail here..."></textarea>
+			    	</div>
+		      </div>
+		    </div>
+		    
+		    
+		    
+		    <div class="row" >
+		    	<input class="btn btn-primary btn-block btnFont detailsButton" align="center" type="submit" value="Submit">
+		    </div>
+		  </form> 
+  </div>
+<div style="height:10px"></div>
+		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>	
+	</body>
+	
+</html>

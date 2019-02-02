@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles">
+<title></title>
+</head>
+<body>
+<nav th:replace ="template :: navbar"></nav>
+	 <div class="container-fluid">
+		<div class="row well">
+			<div class="col-md-12 form-inline">
+				<h3 class ="form-group formHeading">Issue Details</h3>
+			</div>
+		</div>
+	</div>
+	<div th:each="applic : ${issuedetails}" class="container panel panel-primary">
+		<div class="row panel-heading">
+			<div class="col-md-12 ">
+				<h3 class="panel-title titleFont" th:text="' Issue Details for property '+${applic.getIssueAddress()}"></h3>
+			</div>
+		</div>
+		<div style="height:30px"></div>
+		<form class="form-horizontal" role="form">
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">First Name</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getIssueUserFirstName()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">Last name</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getIssueUserLastName()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">Email</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getIssueUserEmail()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="address">Address</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="address"
+		                                th:placeholder="${applic.getIssueAddress()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Phone no</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="phone"
+		                                th:placeholder="${applic.getIssuePhoneNumber()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="address">Issue Type</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="address"
+		                                th:placeholder="${applic.getIssueType()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="address">Issue Description</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                                <textarea class="form-control" rows="4" cols="50"  id="issue_description" 
+		                                th:placeholder="${applic.getIssueDescription()}" disabled></textarea>
+	    	
+		        </div>
+			</div>
+			
+			
+			
+			
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">Owner Name</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${OwnerDetails.getFirstName()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">Owner Email</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${OwnerDetails.getEmail()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Owner Phone no</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="phone"
+		                                th:placeholder="${OwnerDetails.getPhoneNumber()}" disabled>
+		        </div>
+			</div>
+					    </span>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="issueStatus">Issue Status</label>
+				</div>
+				<div class="col-md-8 form-group">                         	
+		        	<span th:switch="${display_Issuestatus}">
+						<span th:case="'Under Review'">
+							<div><input type="text" class="form-control" id="issueStatus" th:placeholder="${applic.getIssueStatus()}" disabled></div>
+							<div class="col-md-3 form-group">
+						 				<a class="form-control btn btn-success btn-block" id="applicationStatus" th:href="@{'/IssueStatusUpdate/' + ${applic.getIssueId()}+'/'+InProgress}">InProgress</a>	
+					 				</div>
+						</span>
+						<span th:case="'InProgress'">
+					 		<div><input type="text" class="form-control" id="issueStatuskl" th:placeholder="${applic.getIssueStatus()}" disabled></div>
+					 		<div class="col-md-3 form-group">
+						 				<a class="form-control btn btn-success btn-block" id="applicationStatuskl" th:href="@{'/IssueStatusUpdate/' + ${applic.getIssueId()}+'/'+Solved}">Solved</a>				
+					 				</div> 
+	   					</span>
+	   					<span th:case="'Solved'">
+							<input type="text" class="form-control" id="issueStatus" th:placeholder="${applic.getIssueStatus()}" disabled>
+						</span>
+					</span>
+		        </div>
+			</div>		
+					
+			</div>
+			
+		</form>
+
+<div style="height:10px"></div>
+<button th:replace="template :: scrollToTop"></button>
+<footer th:replace ="template :: footer"></footer>	
+</body>
+</html>

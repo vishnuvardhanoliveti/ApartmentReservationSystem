@@ -1,0 +1,43 @@
+<!-- This page displays the customer home page -->
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar"></nav>
+		
+	<div class="container">
+  <div class="table-responsive">
+  	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Issue Type</th>
+			    <th>Issue Description</th>
+			    <th>Issue Submitted date</th>
+			    <th>Issue Solved date</th>
+			    <th>Issue Status</th>
+		 	</tr>
+	 	</thead>
+	 	<tbody>
+			<tr th:each="issues : ${myissues}">
+				<td th:text="${issues.getIssueType()}"></td>
+				<td th:text="${issues.getIssueDescription()}"></td>
+				<td th:text="${issues.getIssueSubmittedDate()}"></td>
+				<td th:text="${issues.getIssueSolvedDate()}"></td>
+				<td th:text="${issues.getIssueStatus()}"></td>
+				<!--  <td><a class="btn btn-primary btn-block"  th:href="@{'/serviceIssuePortalOpenRequestDetails/' + ${applic.getEmail()}}">View Application</a></td>-->
+			</tr>
+		</tbody>
+	 </table>
+	 <a class="btn btn-Link pull-right" href="/serviceIssuePortalCreateRequest/">Create New Request</a>
+  </div>
+</div>
+	
+										
+<div style="height:10px"></div>
+		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>	
+	</body>
+	
+</html>

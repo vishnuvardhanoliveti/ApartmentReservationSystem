@@ -1,0 +1,105 @@
+<!-- Page that displays the properties based on the apartment search preferences set -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles"></head>
+<body>
+<nav th:replace="template::navbar">	</nav>
+ <div class="container-fluid">
+ 	<span hidden class="filteredPropertiesSize" th:text="${filteredPropertiesSize}"></span>
+ 	<span hidden class="propertiesSize" th:text="${propertiesSize}"></span>
+	<div class="displayFilterMessage row well">
+		<div class="col-md-10 form-inline">
+			<h4 class ="form-group formHeading">Showing all properties, Search according to filters instead? </h4>
+		</div>
+		<div class="col-md-2">
+	  		<button type="button" id="displayFilter" class="btn btn-info btn-block btnFont">Set Filters</button>
+	  	</div>	
+	</div>
+	<div class="displayFilters row well">
+		<div class="form-inline col-md-2">
+			<h4 class ="form-group formHeading">Preferences: </h4>
+		</div>
+		<form class="form-inline"  role="form" method="POST" action="" th:object = "${property}">
+			<div class="col-md-8">			
+		 		<div class = "form-group">
+		  			<label for="inlineFormCustomSelect1">Type</label>
+		  			<select  class="form-control" th:field="*{propertyType}" id="inlineFormCustomSelect">
+		  				<option th:text="Select" th:value="Select"/>
+		    			<option th:each="type : ${types}" th:text="${type}" th:value="${type}"></option>
+		 			 </select>
+		 		</div>
+		 		<div class = "form-group">
+			   		<label  for="inlineFormCustomSelect2">Location</label>
+			   		
+					<select  class="form-control"  th:field="*{propertyLocation}" id="inlineFormCustomSelect2">
+					 <option th:text="Select" th:value="Select"/>
+					  <option th:each="location : ${locations}" th:text="${location}" th:value="${location}"></option>
+		  			</select>
+		  		</div>
+	  	
+		  		<div class = "form-group">
+				   <label for="inlineFormCustomSelect3">Bedrooms</label>
+					<select  class="form-control" id="inlineFormCustomSelect3" th:field="*{propertyBedrooms}">
+					  	<option th:text="Select" th:value="0"/>
+					    <option th:each="bedroom : ${bedrooms}" th:text="${bedroom}" th:value="${bedroom}"></option>
+				  </select>
+				 </div>
+				 <div class = "form-group">
+				   	<label for="inlineFormCustomSelect4" >Bathrooms</label>
+						<select  class="form-control" id="inlineFormCustomSelect4" th:field="*{propertyBath}">
+						 	<option th:text="Select" th:value="0"/>
+						   <option th:each="bath : ${baths}" th:text="${bath}" th:value="${bath}"></option>
+		  				</select>
+		  		</div>
+		  		 <div class = "form-group">
+				   	<label for="inlineFormCustomSelect5" >Rent Range</label>
+						<select  class="form-control" id="inlineFormCustomSelect5" th:field="*{propertyRent}">
+						 	<option th:text="Select" th:value="0"/>
+						   <option th:each="rent : ${rents}" th:text="${rent}" th:value="${rent}"></option>
+		  				</select>
+		  		</div>
+		  		<div class = "form-group">
+				   	<label for="inlineFormCustomSelect6" >Utilities</label>
+						<select  class="form-control" id="inlineFormCustomSelect6" th:field="*{propertyUtility}">
+						 	<option  selected="selected" th:text="Select" th:value="2"/>
+						  	<option  th:text="Yes" th:value="1"/>
+						   	<option  th:text="No" th:value="0"/>
+		  				</select>
+		  		</div>
+		  		<div class = "form-group">
+				   	<label for="inlineFormCustomSelect7" >Pets</label>
+					<select  class="form-control" id="inlineFormCustomSelect7" th:field="*{propertyPets}">
+					 	<option selected th:text="Select" th:value="2"/>
+					  <!--  <option th:each="pet : ${pets}" th:text="${pet}" th:value="${pet}"></option>-->
+					  <option  th:text="Yes" th:value="1"/>
+					  <option  th:text="No" th:value="0"/>
+		 			</select>
+		  		</div>
+		  	</div>
+	  		<div class="col-md-1">
+	  			<button type="submit" class="btn btn-info btn-block btnFont">Filter</button>
+	  		</div>
+	  		<div class="col-md-1">
+	  			<button type="reset" id="resetFilters" class="btn btn-info btn-block btnFont">Reset</button>
+	  		</div>	
+			
+		</form>
+	</div>
+	
+		
+  	
+ <h3>Apartment Search Results<span th:if="${filteredPropertiesSize}">, Found <span th:text="${filteredPropertiesSize}"></span> results.</span>
+ <span th:unless="${filteredPropertiesSize}"> </span>
+ </h3>
+ <div th:replace="template :: propertiesGrid"> </div>
+         
+ 
+  
+ <p id="apartmentNotFoundMessage" th:text="${msg}"></p>
+ 
+ </div>
+ <button th:replace="template :: scrollToTop"></button>
+<footer th:replace ="template :: footer"></footer></body>
+
+</html>

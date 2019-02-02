@@ -1,0 +1,264 @@
+.user-icon {
+    max-width: 100% !important;
+    height: 200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block;
+}
+
+.preferencesSticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+/* resets */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-auto-columns: 1fr 200px;
+}
+
+.content {
+  grid-column: 1;
+}
+
+.sidebar {
+  grid-column: 2;
+  margin: 5px;
+  padding: 5px;
+}
+
+.grid > * {
+  border: 0px; /* demo only */
+}
+
+/* Product Grid */
+
+body {
+  background: #fff;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 20px
+}
+
+ul.rig {
+  list-style: none;
+  font-size: 0px;
+  margin-left: -2.5%;
+  /* should match li left margin */
+}
+
+ul.rig li {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 0 2.5% 2.5%;
+  background: #fff;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  font-size: 1rem;
+  vertical-align: top;
+  box-shadow: 0 0 0px #000000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+ul.rig li img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 10px;
+}
+
+ul.rig li h3 {
+  margin: 0 0 10px;
+}
+
+ul.rig li p {
+  font-size: 1.0em;
+  line-height: 1.5em;
+  color: #000000;
+}
+
+
+/* class for 2 columns */
+
+ul.rig.columns-2 li {
+  width: 47.5%;
+  /* this value + 2.5 should = 50% */
+}
+
+
+/* class for 3 columns */
+
+ul.rig.columns-3 li {
+  width: 30.83%;
+  /* this value + 2.5 should = 33% */
+}
+
+
+/* class for 4 columns */
+
+ul.rig.columns-4 li {
+  width: 22.5%;
+  /* this value + 2.5 should = 25% */
+}
+
+@media (max-width: 680px) {
+  ul.grid-nav li {
+    display: inline-block;
+    margin: 0 0 5px;
+  }
+  ul.grid-nav li a {
+    display: inline-block;
+    margin: 0 0 5px;
+  }
+  ul.rig {
+    margin-left: 0;
+  }
+  ul.rig li {
+    width: 100% !important;
+    /* over-ride all li styles */
+    margin: 0 0 10px;
+  }
+}
+.detailText{
+	float:right;
+}
+.detailTextPreference{
+	float:left;
+}
+
+.detailItem{
+	height: 75px;
+}
+.detailsButton{
+	border-radius:0px;
+}
+#propertiesCarousel>.item>img{
+	width:100%;
+}
+
+hr{
+border: 0;
+height: 1px;
+background: #333;
+background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+}
+.row.vdivide{
+	clear: both;
+	position: relative;
+}
+
+.row.vdivide:after {
+	clear: both;
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.row.vdivide [class*='col-']:not(:last-child):after {
+	background: #333;
+	background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+	background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+	background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+	background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+  	width: 1px;
+  	content: "";
+  	display:block;
+  	position: absolute;
+  	top:0;
+  	bottom: 0;
+  	right: 0;
+  	min-height: 70px;
+}
+#floorPlan{
+	width:auto;
+}
+.titleFont{
+	font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.userRating{
+	font-size:15px !important;
+}
+/*
+test start
+*/
+
+fieldset, label { margin: 0; padding: 0; }
+
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #000000;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #525252;  } 
+
+
+
+input:read-only {
+    background-color: white !important;
+}
+textarea:read-only {
+    background-color: white !important;
+}
+input:disabled {
+    background-color: white;
+}
+
+input[type=radio]{
+	background-color : black !important;
+}
+
+
+

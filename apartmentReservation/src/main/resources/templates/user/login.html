@@ -1,0 +1,75 @@
+<!-- This page displays the login form -->
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar"></nav>
+		<!-- <div class="container">
+			<div class="alert alert-danger" role="alert" th:if="${param.error}">
+				The email or password is incorrect!
+			</div>
+			<form th:action="@{/login}" method="post" >
+				<h3 class="h3 mb-3 font-weight-normal">Log In</h3>
+				<label for="inputEmail" class="sr-only">Email</label>
+					<input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+				<label for="inputPassword" class="sr-only">Password</label>
+					<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+				<div class="checkbox mb-3">
+					<label>
+						<input type="checkbox" name="remember-me" /> Remember me
+					</label>
+				</div>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				<div class="margin-top20 text-center"> Don't have an account? 
+					<a th:href="@{/signup}">Create an account</a>
+				</div>
+			</form>
+		</div> -->
+		
+		<div class="container">
+			<div class="alert alert-danger" role="alert" th:if="${param.error}">
+				The email or password is incorrect!
+			</div>
+	    	<form class="form-horizontal" role="form" method="POST" th:action="@{/login}">
+		         <div class="row">
+		         	<div class="col-md-12">
+		         		<h2>Log In</h2>
+		         		<hr>
+		         	</div>
+		         </div>
+		         <div class="row">
+		             <div class="col-md-3 field-label-responsive">
+		                 <label for="inputEmail">Email</label>
+		             </div>
+		             <div class="col-md-6 form-group">
+		                <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+		             </div>
+		         </div>
+		         <div class="row">
+		             <div class="col-md-3 field-label-responsive">
+		                 <label for="inputPassword">Password</label>
+		             </div>
+		             <div class="col-md-6 form-group">
+		                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+		             </div>
+		         </div>
+		         
+				 <div class="row">
+		             <div class="col-md-3  field-label-responsive"></div>
+		             <div class="col-md-6 form-group">
+		                 <button type="submit" class="btn btn-success btn-block">Sign In</button>
+		             </div>
+		         </div>
+		         <div class="margin-top20 text-center"> Don't have an account? 
+					<a th:href="@{/signup}">Create an account</a>
+				</div>
+		        
+		 	</form>
+		</div>
+		
+		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>
+	</body>
+</html>

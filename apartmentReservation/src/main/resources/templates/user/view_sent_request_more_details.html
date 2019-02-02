@@ -1,0 +1,76 @@
+<!-- Page that displays the properties based on the apartment search preferences set -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles"></head>
+<body>
+<nav th:replace="template::navbar">	</nav>
+ <div class="container-fluid">
+ 
+ 
+						      		
+		<div th:each="applic : ${userdetails}" class="container panel panel-primary">
+		<div class="row panel-heading">
+			<div class="col-md-12 ">
+				<h3 class="panel-title titleFont" th:text="' Requested User Details '"></h3>
+			</div>
+		</div>
+		<div style="height:30px"></div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">First Name</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getFirstName()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">Last name</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getLastName()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">Email</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getEmail()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Phone no</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="phone"
+		                                th:placeholder="${applic.getPhoneNumber()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Gender</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="phone"
+		                                th:placeholder="${applic.getGender()}" disabled>
+		        </div>
+			</div>
+			<span th:switch="${isleaseduser}">
+			<span th:case="'yes'">
+			
+				<a class="btn btn-primary"  th:href="@{'/submit_background_verification_application_leased/'+${leasedUserEmail}}">Start Leasing Process</a></span>
+									
+				<span th:case="'no'"></span><h5></h5> </span>
+				</div>
+ <button th:replace="template :: scrollToTop"></button>
+<footer th:replace ="template :: footer"></footer></body>
+
+</html>

@@ -1,0 +1,46 @@
+<!-- Page that displays the properties based on the apartment search preferences set -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles"></head>
+<body>
+<nav th:replace="template::navbar">	</nav>
+ <div class="container-fluid">
+ <span th:switch="${requestsDisplay}">
+	<span th:case="'yes'">
+ 	<div class="table-responsive">						
+  	<table class="table table-striped">
+		<thead>
+			<tr>
+			    <th>Gender</th>
+			    <th>Age</th>
+			    <th>Preference Match</th>
+			    <th>Status</th>
+			    <th>Options</th>
+		 	</tr>
+	 	</thead>
+	 	<tbody>
+			<tr th:each="applic : ${viewsentrequest}">
+				<td th:text="${applic.getRequestedUserGender()}"></td>
+				<td th:text="${applic.getRequestedUserAge()}"></td>
+				<td th:text="${applic.getMatchedPercent()}"></td>
+				<td th:text="${applic.getUserDecision()}"></td>
+				<td ><span th:switch="${applic.getUserDecision()}">
+						      		<span th:case="'accepted'"><a class="btn btn-primary btn-block"  th:href="@{'/viewSentRequestMoreDetails/'+${applic.getRequestedUserEmail()}}">Display further options</a></span>
+									<span th:case="'sent'"><h5>No further options</h5></span></span></td>
+				
+				 
+			</tr>
+		</tbody>
+	 </table>
+	
+  </div>
+	</span>
+	<span th:case="'no'">
+	<h1>You don't have any sent requests to display at this moment </h1></span>
+	</span>	
+ </div>
+ <button th:replace="template :: scrollToTop"></button>
+<footer th:replace ="template :: footer"></footer></body>
+
+</html>

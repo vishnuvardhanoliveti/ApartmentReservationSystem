@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerFiles">
+<title>ApartmentReservationSystem</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="https://image.ibb.co/ejDZ19/logo-clear1-Copy.png">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src= "/js/control.js"></script>
+	<script type="text/javascript" src= "/js/ratings_script.js"></script>
+	<link rel="stylesheet" href="/css/style.css"/>
+	<link rel="stylesheet" href="/css/propertiesStyles.css"/> 
+	
+</head>
+<body>
+	<nav th:fragment="navbar" class="navbar navbar-inverse">
+	<span hidden class="userRole" th:text="${userRole}"></span>
+	<span hidden class="userName" th:text="${userName}"></span>
+	<span hidden class="applicationSubmitted" th:text="${display_options}"></span>
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span	class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/home "><img src="https://image.ibb.co/inU7KU/Logo.png" alt="Logo" border="0"></a>
+				</div>
+				<div class="navbar-collapse collapse" id="myNavbar">
+					<ul id="navbarListElements" class="nav navbar-nav">
+						<li class=""><a href="/home">Home</a></li>
+						<li class="dropdown navBarDropdown">
+						
+							<a class="dropdown-toggle" data-toggle="dropdown" href="/properties">Properties</a>
+							
+							<ul id="propertiesElements" class="nav navbar-nav navbar-inverse dropdown-menu"></ul>
+						</li>
+						
+						<li class=""><a href="/contact">Contact</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right" id="navbarAccountLogo" >
+						<li class="dropdown navBarDropdown">
+						
+						<a class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" href="#"><span class="userAccountName"></span></a>
+							
+							<ul id="userAccountElements" class="nav navbar-nav navbar-inverse dropdown-menu multi-level"></ul>
+						</li>
+						<!--Modal for logout start  -->
+						<div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+						  <div class="modal-dialog modal-md">
+						    <div class="modal-content">
+						      <div class="modal-header"><h4>Logout <i class="fa fa-lock"></i></h4></div>
+						      <div class="modal-body"><i class="fa fa-question-circle"></i> Are you sure you want to log-off?</div>
+						      <div class="modal-footer"><a  href='/logout' class="btn btn-danger btn-block">Logout</a></div>
+						    </div>
+						  </div>
+						</div>
+						<!--Modal for logout end  -->
+						
+						<!--Modal for applcation status start  -->
+						<div class="modal application-status-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
+						  <div class="modal-dialog modal-md">
+						    <div class="modal-content">
+						      <div class="modal-header"><h4>Application Status <i class="glyphicon glyphicon-info-sign"></i></h4></div>
+						      <div class="modal-body"><i class=""></i>Your Application is: 
+						      	<span th:switch="${display_options}">
+						      		<span th:case="'yes'"><span th:utext="${display_status}"></span></span>
+									<span th:case="'no'">
+						      </div>
+						      <div class="modal-footer" >
+						      <span th:switch="${display_signthelease}" >
+						      	<a  th:case="'yes'" href='/signthelease/' class="btn btn-primary btn-block">Sign the lease document</a>
+										</span>
+										<span th:switch="${downloadpdf}" >
+						      				<a th:case="'yes'" th:href="@{'/download/leasepdf'}" class="btn btn-primary btn-block">Download Lease Document</a>
+											<a class="btn btn-success btn-block" th:href="@{'/ViewMyProperty/'}" >View My property</a>	
+										</span>
+													
+						     </div>
+						    </div>
+						  </div>
+						</div>
+						<!--Modal for application status end  -->
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		
+	
+	
+<div id="scrollTop"   th:fragment="scrollToTop">
+<a href="#" class = "glyphicon glyphicon-menu-up"></a>
+</div>		
+
+	<div th:fragment="propertiesGrid" class="grid">
+		
+	      <div class="content">
+	          <ul class="rig columns-4">
+	              <li class="property" th:each="property : ${prop}">
+	                  <a th:href="@{'/propertyDescription/'+${property.propertyId}}"><img class="product-image" th:src="@{'../images/'+${property.propertyType}+'/external.jpg'}"/></a>
+	                  <h4 th:text="${property.propertyName}"></h4>
+	                  <span hidden class="ratingPoints" th:text="${ratingByPropertyName.get(property.propertyName)}"></span>
+	                  <p th:text="${property.propertyAddress}"></p>
+	                  <div class="price" th:text="${'$'+property.propertyRent}"></div>
+	                  <hr>
+	                  <a th:href="@{'/propertyDescription/'+${property.propertyId}}" class="btn btn-default btn-block">
+	                      <i class="glyphicon glyphicon-eye-open"></i> Details
+	                  </a>
+	              </li>
+	           </ul>
+	     </div>
+	</div>
+	
+	<!--Modal for roommate pref start  -->
+						<div th:fragment="roommatePreferenceModal" class="modal roommate-preference-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
+						  <div class="modal-dialog modal-md">
+						    <div class="modal-content">
+						      <div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button><h4>Match Results<i class="glyphicon glyphicon-info-sign"></i></h4></div>
+						      <div class="modal-body"><i class=""></i> 
+						      	<div class="row">
+						      		<div class="col-md-4">Category</div>
+						      		<div class="col-md-4">My Preference</div>
+						      		<div class="col-md-4">Match Result</div>
+						      		<hr>
+						      	</div>
+						      	<div class="row">
+									<div id="detailsList1" class="col-md-4 detailsBlock">
+										<div class="detailItem">
+											<span >Gender </span>
+										</div>
+										<div class="detailItem">
+											<span >Vegan </span>
+										</div>
+										<div class="detailItem">
+											<span >Pets </span>
+										</div>
+										<div class="detailItem">
+											<span >Drinking </span>
+										</div>
+										<div class="detailItem">
+											<span >Smoking </span>
+										</div>
+										<div class="detailItem">
+											<span >Age </span>
+										</div>
+										<div class="detailItem">
+											<span >Location </span>
+										</div>
+									</div> 
+
+									<div id="detailsList1" class="col-md-4 detailsBlock">
+										<div class="detailItem">
+											<span class="detailTextPreference" th:text="${roommatePreferences.gender}"></span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${roommatePreferences.vegan==true}" class="detailTextPreference">Yes</span>
+											<span th:unless="${roommatePreferences.vegan==true}" class="detailTextPreference">No</span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${roommatePreferences.pets==true}" class="detailTextPreference">Yes</span>
+											<span th:unless="${roommatePreferences.pets==true}" class="detailTextPreference">No</span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${roommatePreferences.drinking==true}" class="detailTextPreference">Yes</span>
+											<span th:unless="${roommatePreferences.drinking==true}" class="detailTextPreference">No</span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${roommatePreferences.smoking==true}" class="detailTextPreference">Yes</span>
+											<span th:unless="${roommatePreferences.smoking==true}" class="detailTextPreference">No</span>
+										</div>
+										<div class="detailItem">
+											<span class="detailTextPreference" th:text="${roommatePreferences.ageGroup}"></span>
+										</div>
+										<div class="detailItem">
+											<span class="detailTextPreference" th:text="${roommatePreferences.location}"></span>
+										</div>
+									</div> 
+									
+									<div id="detailsList1" class="col-md-4 detailsBlock">
+										<div class="detailItem">
+											<span th:if="${result.gender=='matched'}" class="detailTextPreference glyphicon glyphicon-ok"> Matched</span>
+											<span th:unless="${result.gender=='matched'}" class="detailTextPreference glyphicon glyphicon-remove"> Not Matched</span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${result.vegan=='matched'}" class="detailTextPreference glyphicon glyphicon-ok"> Matched</span>
+											<span th:unless="${result.vegan=='matched'}" class="detailTextPreference glyphicon glyphicon-remove"> Not Matched</span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${result.pets=='matched'}" class="detailTextPreference glyphicon glyphicon-ok"> Matched</span>
+											<span th:unless="${result.pets=='matched'}" class="detailTextPreference glyphicon glyphicon-remove"> Not Matched</span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${result.drinking=='matched'}" class="detailTextPreference glyphicon glyphicon-ok"> Matched</span>
+											<span th:unless="${result.drinking=='matched'}" class="detailTextPreference glyphicon glyphicon-remove"> Not Matched</span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${result.smoking=='matched'}" class="detailTextPreference glyphicon glyphicon-ok"> Matched</span>
+											<span th:unless="${result.smoking=='matched'}" class="detailTextPreference glyphicon glyphicon-remove"> Not Matched</span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${result.agePreferences=='matched'}" class="detailTextPreference glyphicon glyphicon-ok"> Matched</span>
+											<span th:unless="${result.agePreferences=='matched'}" class="detailTextPreference glyphicon glyphicon-remove"> Not Matched</span>
+										</div>
+										<div class="detailItem">
+											<span th:if="${result.location=='matched'}" class="detailTextPreference glyphicon glyphicon-ok" > Matched</span>
+											<span th:unless="${result.location=='matched'}" class="detailTextPreference glyphicon glyphicon-remove"> Not Matched</span>
+										</div>
+									</div> 
+									
+								</div>
+						      
+						      </div>
+						      <div class="modal-footer" >
+						      	<span th:if="${showProperty==true}">
+						      		<div class="row">
+						      			<div class="col-md-6">
+						      				<a  th:href="@{'/propertyDescription/'+${result.propertyId}}" class="btn btn-success btn-block">View Property</a>
+						      			</div>
+						      			<div class="col-md-6">
+						      				<button data-dismiss="modal" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-remove"></i> Close</button>
+						      			</div>
+						      			
+						      		</div>
+						      	</span> 
+						      	<span th:unless="${showProperty==true}">
+						      		<button data-dismiss="modal" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-remove"></i> Close </button>
+						      	</span>
+						     </div>
+						    </div>
+						  </div>
+						</div>
+						<!--Modal for roommate pref end  -->
+
+</body>
+<footer th:fragment="footer" class="footer">
+  <p class="footerText">Copyright @Cloud9</p>
+</footer>
+</html>

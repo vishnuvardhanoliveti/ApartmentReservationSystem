@@ -1,0 +1,214 @@
+<!-- This page displays the roommate preferences and matched results for shared properties based on the preferences for a visiting customer  -->
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar"></nav>
+		<div th:fragment="editRoommatePreferences" class="">
+		<span hidden class="pref" th:text="${roommatePreferences}"></span>
+		<input hidden class="gender"  th:value="${roommatePreferences.gender}"/>
+		<input hidden class="ageGroup"  th:value="${roommatePreferences.ageGroup}"/>
+		<input hidden class="vegan"  th:value="${roommatePreferences.vegan}"/>
+		<input hidden class="drinking"  th:value="${roommatePreferences.drinking}"/>
+		<input hidden class="smoking"  th:value="${roommatePreferences.smoking}"/>
+		<input hidden class="pets"  th:value="${roommatePreferences.pets}"/>
+
+		 <div class="container-fluid">
+		     	<div class="row">
+		     		<div class="col-md-4">
+		     			<form class="form-horizontal" role="form" method="POST" th:action="@{/sharedProperties/search}" th:object="${roommatePreferences}">	         
+				         <div class="row">
+				             <div class="col-md-12">
+				                 <h2>My Roommate  Preferences</h2>
+				             </div>
+				         </div>
+				         
+				         
+				         
+				         
+				       <div class="row">
+				            <div class="col-md-12">
+				            	<div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+				     			</div>
+				            </div>
+				         </div>
+				         <div class="row">
+				            <div class="col-md-6 field-label-responsive">
+				            	<label th:for="gender" >Gender</label>
+				            </div>
+				             <div class="col-md-6 form-group">
+				            	<div class="btn-group" data-toggle="buttons">
+					            	<label class="gendermale btn btn-primary">
+							            <input type="radio" th:field="*{gender}" name="gender" id="male" value="Male" required/>Male
+							        </label>
+							        <label class="genderfemale btn btn-primary">
+							            <input type="radio" th:field="*{gender}" name="gender" id="female" value="Female"/>Female
+							        </label>
+				            	</div>
+				             </div>
+				         </div>
+				         
+				         <div class="row">
+				             <div class="col-md-6 field-label-responsive">
+				            	<label th:for="vegan" >Vegan</label>
+				            </div>
+				             <div class="col-md-6 form-group">
+				             
+				               
+				               <div class="btn-group" data-toggle="buttons">
+					            	<label class="vegantrue btn btn-primary">
+							            <input type="radio" th:field="*{vegan}" name="vegan" id="vegantrue" value="Yes" required/>Yes
+							        </label>
+							        <label class="veganfalse btn btn-primary">
+							            <input type="radio" th:field="*{vegan}" name="vegan"id="veganfalse" value="No" />No
+							        </label>
+				            	</div>
+				             </div>
+				         </div>
+				         
+				          <div class="row">
+				            <div class="col-md-6 field-label-responsive">
+				            	<label th:for="pets" >Pets</label>
+				            </div>
+				             <div class="col-md-6 form-group">
+				             
+				                <div class="btn-group" data-toggle="buttons">
+					            	<label class="petstrue btn btn-primary">
+							            <input type="radio" th:field="*{pets}" id="petstrue" name="pets" value="Yes" required/>Yes
+							        </label>
+							        <label class="petsfalse btn btn-primary">
+							           <input type="radio" th:field="*{pets}" id="petsfalse" name="pets" value="No" />No
+							        </label>
+				            	</div>
+				             </div>
+				         </div>
+				         
+				        
+				          <div class="row">
+				          	<div class="col-md-6 field-label-responsive">
+				            	<label th:for="drinking" >Drinking Habits</label>
+				            </div>
+				            
+				             <div class="col-md-6 form-group">
+				               
+				              <div class="btn-group" data-toggle="buttons">
+					            	<label class="drinkingtrue btn btn-primary">
+							            <input type="radio" th:field="*{drinking}" id="drinkingtrue" name="drinking" value="Yes" required/>Yes
+							        </label>
+							        <label class="drinkingfalse btn btn-primary">
+							           <input type="radio" th:field="*{drinking}" id="drinkingfalse" name="drinking" value="No" />No
+							        </label>
+				            	</div>
+				             </div>
+				         </div>
+				         
+				         <div class="row">
+				            <div class="col-md-6 field-label-responsive">
+				            	<label th:for="smoking" >Smoking Habits</label>
+				            </div>
+				             <div class="col-md-6 form-group">
+				               
+				              <div class="btn-group" data-toggle="buttons">
+					            	<label class="smokingtrue btn btn-primary">
+							            <input type="radio" th:field="*{smoking}" id="smokingtrue" name="smoking" value="Yes" required/>Yes
+							        </label>
+							        <label class=" smokingfalse btn btn-primary">
+							           <input type="radio" th:field="*{smoking}" id="smokingfalse" name="smoking" value="No" />No
+							        </label>
+				            	</div>
+				             </div>
+				         </div>
+				        
+				         
+				         
+				         <div class="row">
+				         <div class="col-md-6 field-label-responsive">
+				            	<label for="agePreferences">Age Preferences</label>
+				            </div>
+				         
+				               <div class = "col-md-6 form-group">
+					  			
+					  			<select required class="form-control" th:field="*{ageGroup}" id="agePreferences" >
+					  				<option th:text="Select" value=""/>
+					  				 <option th:each="ageGroup : ${agePreferences}" th:text="${ageGroup}" th:value="${ageGroup}"></option>
+					    			
+					 			 </select>
+				 			</div>
+				         </div>
+				         
+			             <div class="row">
+			             <div class="col-md-6 field-label-responsive">
+				            	<label for="locationPreferences">Location Preferences</label>
+				            </div>
+				             <div class = "col-md-6 form-group">
+					  			<select  class="form-control" th:field="*{location}" id="locationPref" required> 
+					  				<option th:text="Select" value=""/>
+					  				 <option th:each="location : ${locations}" th:text="${location}" th:value="${location}"></option>
+					    			
+					 			 </select>
+				 			</div>
+			             </div>
+			            <div class="row">
+			            <div class="col-md-12"><button type="submit" class="btn btn-info btn-block btnFont">Search</button></div>
+			  			</div>
+				     </form> 
+		     		
+		     		
+		     		
+		     		</div>
+		     		<div class="col-md-8">
+		     			
+		     				<div th:if="${matchedResults}">
+   								
+			     							
+									<div class="grid">
+									     <div class="content">
+									         <ul class="rig columns-3">
+									         	<span th:each="rank : ${matchedResults.keySet()}">
+										            <li class="roommatePreferenceResult" th:each="result : ${matchedResults.get(rank)}">
+										                  <a th:if="${result.matchedActualGender == 'Male'}" ><img src="https://i.ibb.co/vx86cNn/18274054-1.jpg" alt="18274054-1" border="0" class="user-icon"/><span hidden class="userId" th:text="${result.userId}"></span>
+										                  <span hidden class="userEmail" th:text="${userEmail}"></span>
+										                  </a>
+										                  <a th:unless="${result.matchedActualGender == 'Male'}"><img src="https://i.ibb.co/qj2zYDh/18274054-2.jpg" alt="18274054-2" border="0" class="user-icon"/><span hidden class="userId" th:text="${result.userId}"></span>
+										                  <span hidden class="userEmail" th:text="${userEmail}"></span>
+										                  </a>
+										                  <h5 hidden id="preferenceScore" th:text="${result.matchedScore}"></h5>
+										                  <div style="height:15px"></div>
+										                  <div class="h6" th:text="${'Age: '+result.matchedactualAge}"></div>
+										                  <div class="h6 gender" th:text="${'Gender: '+result.matchedActualGender}"></div>
+										                  <div class="h6" th:text="${'Property: '+result.propertyName+', '+result.propertyLocation}"></div>
+										                  <hr>
+										                  <h5>you must login to send request</h5>
+										                  <button  class= "btn btn-default btn-block"disabled><i class="glyphicon glyphicon-eye-open"></i>Send Request</button>
+										             </li>
+									             </span>
+									           </ul>
+									     </div>
+									</div>
+										
+									</div>
+									<div th:unless="${matchedResults}">
+   										<div >Set Roommate Search preferences to get results</div>
+									</div>
+			     		
+			     		</div>
+		     		
+		     		</div>
+		     	</div>
+		     
+		     </div>    
+		    
+		
+	    
+		 </div>
+		
+		
+		
+		<div style="height:10px"></div>
+		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>
+		
+	</body>
+</html>

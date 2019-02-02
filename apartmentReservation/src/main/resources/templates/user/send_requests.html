@@ -1,0 +1,35 @@
+<!-- Page that displays the properties based on the apartment search preferences set -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles"></head>
+<body>
+<nav th:replace="template::navbar">	</nav>
+ <div class="container-fluid">
+ 	<div class="table-responsive">
+  	<table class="table table-striped">
+		<thead>
+			<tr>
+			    <th>Gender</th>
+			    <th>Age</th>
+			    <th>Request</th>
+			    <th></th>
+		 	</tr>
+	 	</thead>
+	 	<tbody>
+			<tr th:each="applic : ${userAll}">
+				<td th:text="${applic.getEmail()}"></td>
+				<td th:text="${applic.getEmail()}"></td>
+				<td><a class="btn btn-primary btn-block"  th:href="@{'/requestForMoreDetails/'+${applic.getEmail()}}">Send Request</a></td>
+			</tr>
+		</tbody>
+	 </table>
+	
+	
+  </div>
+		
+ </div>
+ <button th:replace="template :: scrollToTop"></button>
+<footer th:replace ="template :: footer"></footer></body>
+
+</html>

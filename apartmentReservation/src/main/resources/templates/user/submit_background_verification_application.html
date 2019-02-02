@@ -1,0 +1,220 @@
+<!-- This page displays the background verification form to the customer -->
+<!DOCTYPE html>
+<html>
+<head>
+<head th:replace="template::headerFiles"></head>
+<body>
+<nav th:replace="template::navbar"></nav>
+<div class="container panel panel-primary">
+	<div class="row panel-heading">
+		<div class="col-md-12 ">
+			<h3 class="panel-title titleFont">Leasing Application</h3>
+		</div>
+	</div>
+	<div style="height:10px"></div>
+  	<form class="form-horizontal" role="form" th:action="@{'/submit_background_verification_application/'+${propId}}" method="post">
+  		
+  		<div class="row">
+ 			<div class="col-md-4 field-label-responsive">
+        		<label for="firstname">First Name</label>
+      		</div>
+      		<div class="col-md-8 form-group" >
+      			<input type="text" class="form-control" id="firstname" th:placeholder="${userforDetails.firstName}" disabled>
+      		</div>
+   		</div>
+	   	
+	   	<div class="row">
+	      <div class="col-md-4 field-label-responsive">
+	        <label for="Lastname">Last Name</label>
+	      </div>
+	      <div class="col-md-8 form-group">
+	      	<input type="text" class="form-control" id="Lastname" th:placeholder="${userforDetails.lastName}" disabled>
+	      </div>
+	    </div>
+	    
+	    <div class="row">
+	      <div class="col-md-4 field-label-responsive">
+	        <label for="email">Email</label>
+	      </div>
+	      <div class="col-md-8 form-group">
+	      	<input type="text" class="form-control" id="email" th:placeholder="${userforDetails.email}" disabled>
+	      </div>
+	    </div>
+	    
+	      <div class="row">
+	      <div class="col-md-4 field-label-responsive">
+	        <label for="homeaddress">Home address</label>
+	      </div>
+	      <div class="col-md-8 form-group">
+	      	<input type="text" class="form-control" id="homeaddress" th:placeholder="${userforDetails.addressLine1+', '+userforDetails.addressLine2+', '+userforDetails.city+', '+userforDetails.state+', '+userforDetails.zip}" disabled>
+	      </div>
+	    </div>
+      
+      
+      <div class="row">
+      <div class="col-md-4 field-label-responsive">
+        <label for="phoneNumber">Phone number</label>
+      </div>
+      <div class="col-md-8 form-group">
+      	<input type="text" class="form-control" id="phoneNumber" th:placeholder="${userforDetails.phoneNumber}" disabled>
+      </div>
+      </div>
+     
+     <div class="row">
+      <div class="col-md-4 field-label-responsive">
+        <label for="dob">Date of Birth</label>
+      </div>
+       <div class="col-md-8 form-group">
+	       <input type="date" id="dob" name="dob" class="form-control" th:value="${userforDetails.dob}" disabled>
+      </div>
+    </div>
+   
+   <div class="row">
+      <div class="col-md-4 field-label-responsive">
+        <label for="ssn">Social Secuirty Number</label>
+      </div>
+      <div class="col-md-8 form-group">
+      	<input type="text" id="ssn" name="ssn" placeholder="Please enter your SSN here in xxx-xx-xxxx" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" required>
+      </div>
+    </div>
+       
+       <div class="row">
+      <div class="col-md-4 field-label-responsive">
+        <label for="ethnicity">Ethnicity</label>
+      </div>
+      <div class="col-md-8 form-group">
+      <select class="form-control" id="ethnicity" name="ethnicity" required >
+    <option value="Native Americans in the United States">Native American in the United States</option>
+    <option value="Hispanic and Latino Americans">Hispanic and Latino American</option>
+    <option value="African Americans">African American</option>
+    <option value="Asian people">Asian</option>
+  </select>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4 field-label-responsive">
+        <label for="occupation">Occupation</label>
+      </div>
+      <div class="col-md-8 form-group">
+        <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Please enter your occupation here." required>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4 field-label-responsive">
+        <label for="salary">Salary</label>
+      </div>
+      <div class="col-md-8 form-group">
+      <select class="form-control" id="salary" name="salary" required >
+    <option value="Below $10,000">Below $10,000</option>
+    <option value="$10,000 - $30,000">$10,000 - $30,000</option>
+    <option value="$30,000 - $60,000">$30,000 - $60,000</option>
+    <option value="$60,000 - $90,000">$60,000 - $90,000</option>
+    <option value="Above $90,000">Above $90,000</option>
+    </select>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4 field-label-responsive">
+        <label for="smokinghabit">Smoking Habit</label>
+      </div>
+      <div class="col-md-8 form-group">
+       <select class="form-control" id="smokinghabit" name="smokinghabit" required>
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+    </select>
+      </div>
+    </div>
+   
+    <div class="row">
+      <div class="col-md-4 field-label-responsive">
+        <label for="pets">Pets</label>
+      </div>
+      <div class="col-md-8 form-group">
+      <select class="form-control" id="pets" name="pets" required >
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+    </select>
+      </div>
+    </div>
+   
+    <div class="row">
+      <div class="col-md-4 field-label-responsive">
+        <label for="otherroommates">Other Roommates</label>
+      </div>
+      <div class="col-md-8 form-group">
+      <select class="form-control" id="otherroommates" name="otherroommates" required>
+    <option value="No">No</option>
+    <option value="1">1 Roommate</option>
+    <option value="2">2 Roommates</option>
+    </select>
+    <div id="1" class="enterdetails_rm1" style="display:none;">
+		<div style="height:5px"></div>
+		<div class="form-horizontal"> 
+			<div class="row">
+				<div class="col-md-3 field-label-responsive">
+					<label for="specify">Enter Roommate 1 Details</label>
+				</div>
+				<div class="col-md-3 form-group">
+					<input class="form-control" type="text" name="firstname_rm1" id="firstname_rm1" placeholder="Enter First Name"/>
+				</div>
+			<div class="col-md-3 form-group">
+					<input class="form-control" type="text" name="lastname_rm1" id="lastname_rm1" placeholder="Enter Last Name"/>
+				</div>
+			<div class="col-md-3 form-group">
+					<input class="form-control" type="email" name="emailid_rm1" id="emailid_rm1" placeholder="Enter Email ID"/>
+				</div>
+			</div>	 				
+		</div>
+	</div>
+	 <div id="2" class="enterdetails_rm2" style="display:none;">
+		<div style="height:5px"></div>
+		<div class="form-horizontal"> 
+			<div class="row">
+				<div class="col-md-3 field-label-responsive">
+					<label for="specify">Enter Roommate 1 Details</label>
+				</div>
+				<div class="col-md-3 form-group">
+					<input class="form-control" type="text" name="firstname_rm1" id="firstname_rm1" placeholder="Enter First Name"/>
+				</div>
+			<div class="col-md-3 form-group">
+					<input class="form-control" type="text" name="lastname_rm1" id="lastname_rm1" placeholder="Enter Last Name"/>
+				</div>
+			<div class="col-md-3 form-group">
+					<input class="form-control" type="email" name="emailid_rm1" id="emailid_rm1" placeholder="Enter Email ID"/>
+				</div>
+			</div>	 				
+		</div>
+		<div style="height:5px"></div>
+		<div class="form-horizontal"> 
+			<div class="row">
+				<div class="col-md-3 field-label-responsive">
+					<label for="specify">Enter Roommate 2 Details</label>
+				</div>
+				<div class="col-md-3 form-group">
+					<input class="form-control" type="text" name="firstname_rm2" id="firstname_rm2" placeholder="Enter First Name"/>
+				</div>
+			<div class="col-md-3 form-group">
+					<input class="form-control" type="text" name="lastname_rm2" id="lastname_rm2" placeholder="Enter Last Name"/>
+				</div>
+			<div class="col-md-3 form-group">
+					<input class="form-control" type="email" name="emailid_rm2" id="emailid_rm2" placeholder="Enter Email ID"/>
+				</div>
+			</div>	 				
+		</div>
+	</div>
+
+      </div>
+    </div>
+    <div class="row">
+      <input class="btn btn-primary btn-block btnFont detailsButton" type="submit" value="Submit">
+    </div>
+  </form> 
+</div>
+<div style="height:10px"></div>
+<button th:replace="template :: scrollToTop"></button>
+<footer th:replace ="template :: footer"></footer>	
+</body>
+</html>

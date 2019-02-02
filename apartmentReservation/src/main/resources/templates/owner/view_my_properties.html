@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar">	</nav>
+ 		<div class="container-fluid">
+ 
+  			<div class="row well">
+				<div class="col-md-12 form-inline">
+					<h3 class ="form-group formHeading">My Properties</h3>
+				</div>
+			</div>
+			<div th:replace="template :: propertiesGrid"> </div>
+  	
+ 		</div>
+ 			
+ 		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>
+	</body>
+</html>

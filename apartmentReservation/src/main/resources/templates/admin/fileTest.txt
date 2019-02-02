@@ -1,0 +1,59 @@
+1.Utilities and Services.
+1.1 Usage and Other Charges. 
+You may use utilities only for normal household purposes and must not waste them. If your electricity is interrupted, you must use only batteryoperated lighting (no flames). You must not allow any utilities(other than cable or Internet) to be cut off or switched for any reasonÃ¢â‚¬â€�including disconnection for not paying your billsÃ¢â‚¬â€�until the Lease term or renewal period ends. You must connect utilities in your name and you must notifythe provider of your move-out date so the meter can be timely read. If you delay getting it turned on in your name by the LeaseÃ¢â‚¬â„¢s start date or cause it to be transferred back into our name before you surrender or abandon thedwelling, youÃ¢â‚¬â„¢ll be liable for a $__________ charge (not to exceed $50 per billing period), plus the actual or estimated
+cost of the utilities used while the utility should have been billed to you. If youÃ¢â‚¬â„¢re in an area open to competition andyour dwelling is individually metered, you may choose or change your retail electric provider at any time. If you qualify,
+your provider will be the same as ours, unless you choose a different provider. If you do choose or change your provider,you must give us written notice. 
+
+1.2 Yard Maintenance. 
+Unless Par. 9 says otherwise, you will be responsible for and pay for the following items: mowing and edging the lawn and maintaining all plants, trees, shrubs, etc.; watering the lawn and other vegetation; keeping
+the lawn, flowerbeds, sidewalks, porches and driveways free of trash and debris; and fertilizing lawn and plants.
+
+
+2. Damages and Reimbursement.
+2.1 Damage in the Dwelling. You must promptly pay or reimburse us for loss, damage, consequential damages, government fines or charges, or cost of repairs or service in the dwelling because of a Lease or rules violation; improper use; negligence; other conduct by you, your invitees, your occupants, or your guests; or any other cause not due to our negligence or fault as allowed by law, except for damages by acts of God to the extent they couldnÃ¢â‚¬â„¢t be mitigated by your action or inaction.
+
+2.2 Indemnification by You. 
+YouÃ¢â‚¬â„¢ll ded us harmless from all liability arising from your conduct or that of your invitees, your occupants, your guests, or our representatives who at your request perform services not contemplated in this Lease.
+
+
+3. Contractual Lien and Property Left in the Dwelling.
+3.1 Lien Against Your Property for Rent.
+All property in the dwelling (unless exempt under Texas Property Code sec. 54.042) is subject to a contractual lien to secure payment of delinquent rent (except as prohibited by Texas Government Code sec. 2306.6738, for owners supported by housing-tax-credit allocations). For this purpose, Ã¢â‚¬Å“dwellingÃ¢â‚¬ï¿½ excludes outside areas but includes the interior living areas and exterior patios, balconies, attached garages, and any storerooms for your exclusive use.
+
+3.2 Removal After We Exercise Lien for Rent.
+If your rent is delinquent, our representative may peacefully enter the dwelling and remove and/or store all property subject to lien. All property in the dwelling is presumed to be yours unless proved otherwise. After the property is removed, a written notice of entry must be left in a conspicuous place in the dwellingÃ¢â‚¬â€�including a list of items removed, the amount of delinquent rent due, and the name, address, and phone number of the person to contact. The notice must also state that the property will be promptly returned when the delinquent rent is fully paid.
+
+3.3 Disposition or Sale.
+(A) Our options. Except for animals, we may throw away or give to a charitable organization all personal property that is:
+(1) left in the dwelling after surrender, abandonment,or death of a sole resident; or
+(2) left outside more than 1 hour after writ of possession is executed, following judicial eviction.
+(3). Failing to Pay First MonthÃ¢â‚¬â„¢s Rent. If you donÃ¢â‚¬â„¢t pay the first monthÃ¢â‚¬â„¢s rent when or before the Lease begins, all future rent for the Lease term will be automatically accelerated without notice and become immediately due. We also may end your right of occupancy and recover damages, future rent, reletting charges, attorneyÃ¢â‚¬â„¢s fees, court costs, and other lawful charges. Our rights, remedies and duties under Par. 10 and 32 apply to acceleration under this paragraph.
+
+4. Requests, Repairs, and Malfunctions.
+4.1 Written Requests Required. WeÃ¢â‚¬Ëœll maintain the dwelling in good order and pay for repair and maintenance subject to the repair procedures set forth in this Lease. You must replace air-conditioning filters monthly and keep the yard clean. If you or any occupant needs to send a notice or requestÃ¢â‚¬â€�for example, for repairs, installations, services, ownership disclosure, or security-related mattersÃ¢â‚¬â€�it must be written, signed, and delivered to our designated representative in accordance with our policies (except in case of fire, smoke, gas, explosion, overflowing sewage, uncontrollable running water, electrical shorts, crime in progress, or fair-housing accommodation or modification).
+4.2 Required Notifications. You must promptly notify us in writing of water leaks, mold, electrical problems, malfunctioning lights, broken or missing locks or latches, and other conditions that pose a hazard to property, health, or safety.
+4.3 Utilities. We may change or install utility lines or equipment serving the dwelling if the work is done reasonably without substantially increasing your utility costs. We may turn off equipment and interrupt utilities as needed to avoid property damage or to perform work. If utilities malfunction or are damaged by fire, water, or similar cause, you must notify our representative immediately.
+
+
+SUMMARY OF KEY INFORMATION
+Lease Start Date: leaseStartDate
+Lease End Date:leaseEndDate
+Address: home_address
+Security Deposit: secuirty_deposit
+Monthly Rent: month_rent
+1st Roommate Initials: customer_sign
+2nd Roommate Initials: sign_rm1
+3rd Roommate Initials: sign_rm2
+
+Name of Resident: name_resident                                       
+Date Signed: leaseSignedDate
+
+Name of Resident: name_rm1							    		  
+Date Signed: lease_SignedDaterm1
+
+Name of Resident: name_rm2						   			   
+Date Signed: lease_SignedDaterm2
+
+Owner Name: owner_name							               
+Date Signed: leaseSignedDate
+

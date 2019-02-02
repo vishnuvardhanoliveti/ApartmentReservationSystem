@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="template::headerFiles"></head>
+	<script type="text/javascript" src= "/js/signup.js"></script>
+	<body>
+		<nav th:replace="template::navbar"></nav>
+		<div class="container">
+			<div class="row">
+	             <div class="col-md-3"></div>
+	             <div class="col-md-9">
+	                 <h2>Register New User</h2>
+	             </div>
+	         </div>
+	         
+	         <div class="row">
+		        	<!-- <div class="col-md-3"></div> -->
+		            <div class="col-md-12">
+		            	<div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+		     			</div>
+		            </div>
+		         </div>	
+			<ul class="nav nav-tabs registerTabs">
+			  <li role="presentation" class="active"><a href="javascript:void(0)" id="basicDetails">Basic Details</a></li>
+			  <li role="presentation"><a href="javascript:void(0)" id="personalDetails">Personal Details</a></li>
+			</ul>
+			<div style="height:10px"></div>
+	    	<form id="register" class="form-horizontal" role="form" method="POST" th:action="@{/signup}" th:object="${user}">
+		    	<!-- <div class="row">
+		         	<div class="col-md-12">
+		         		<h6 style="color:red;">Please fill in the details below.</h6>
+		         		<hr>
+		         	</div>
+		         </div> -->
+		        <div id="basicDetailsContents" style="display:none">
+			        <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="name">First Name</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			                <input type="text" th:field="*{firstName}" class="form-control" id="firstname"
+			                                placeholder="First Name" required autofocus>
+			             </div>
+			         </div>
+			         <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="name">Last Name</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			             	<input type="text" th:field="*{lastName}" class="form-control" id="lastname"
+			                                placeholder="Last name" required >        
+			             </div>        
+			         </div>
+			         <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="email">Email</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			                 <input type="text" th:field="*{email}" class="form-control" id="email"
+			                                placeholder="username@gmail.com" required >
+			             </div>
+			             <div class="col-md-3">
+			                 <div class="field-label-responsive">
+			                         <span class="text-danger align-left" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+			                         </span>
+			                 </div>
+			             </div>
+			         </div>
+			         <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="password">Password</label>
+			             </div>
+			             <div class="col-md-6 form-group has-danger">
+			                 <input type="password" th:field="*{password}" class="form-control" id="password"
+			                                placeholder="Password" required>
+			             </div>
+			             <div class="col-md-3">
+			                 <div class="form-control-feedback">
+			                         <span class="text-danger align-middle" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+			                         </span>
+			                 </div>
+			             </div>
+			         </div>
+		        	 <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="password">Confirm Password</label>
+			             </div>
+			             <div class="col-md-6 form-group has-danger">
+			                 <input type="password" class="form-control" id="confirmPassword" placeholder="Password" required>
+			             </div>	
+			             <div class="col-md-3" style="display:none">
+			                 <div class="">
+			                         <span class="" id="confirmPasswordMsg">
+			                         </span>
+			                 </div>
+		             	</div>		            
+			         </div>
+			         
+		         
+			         <div class="row">
+			             <div class="col-md-3  field-label-responsive"></div>
+			             <div class="col-md-6 form-group">
+			                 <button id="signupNext" type="button" class="btn btn-success pull-right">Next</button>
+			             </div>
+			         </div>
+		        </div> 
+		         
+		        
+		         <div id="personalDetailsContents" style="display:none">
+			         <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="dob">Date of Birth</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			                <input type="date" th:field="*{dob}" class="form-control" id="dob" required>
+			             </div>
+			             
+		                 <div class="col-md-3" style="display:none">
+			                 <div class="">
+			                         <span class="" id="ageMsg">
+			                         </span>
+			                 </div>
+		             	</div>
+
+			         </div>
+			         
+			         <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="dob">Gender</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+				             <select  class="form-control" th:field="*{gender}" id="gender" required>
+				  				<option th:text="Select" th:value="Select"/>
+				  				<option th:text="Male" th:value="Male"></option>
+				  				<option th:text="Female" th:value="Female"></option>
+				 			 </select>
+			             </div>
+			         </div>
+			         
+			         
+			         <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="phoneNumber">Phone Number</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="10digit number in <xxx-xxx-xxxx> format" th:field="*{phoneNumber}" class="form-control" id="phone" placeholder="123-456-7890" required >
+			             </div>
+			         </div>
+			         <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="addressLine1">Address Line 1</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			                 <input type="text" th:field="*{addressLine1}" class="form-control" id="addressLine1"
+			                          placeholder="Address Line 1"   required >
+			             </div>
+			         </div>
+		             <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="addressLine2">Address Line 2</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			                 <input type="text" th:field="*{addressLine2}" class="form-control" id="addressLine2"
+			                          placeholder="Address Line 2">
+			             </div>
+		             </div>
+		             <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="city">City</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			                 <input type="text" th:field="*{city}" class="form-control" id="city"
+			                          placeholder="City"   required >
+			             </div>
+		             </div>
+		             <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="state">State</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			                 <input type="text" th:field="*{state}" class="form-control" id="state"
+			                         placeholder="State" required >
+			             </div>
+		             </div>
+		             <div class="row">
+			             <div class="col-md-3 field-label-responsive">
+			                 <label for="zip">Zip</label>
+			             </div>
+			             <div class="col-md-6 form-group">
+			                  <input type="text" pattern="[1-9]{1}[0-9]{4}" th:field="*{zip}" class="form-control" id="zip"
+			                          placeholder="Zip" title="Five digit code"  required >
+			             </div>
+		             </div>
+			         <div class="row">
+			             <div class="col-md-3  field-label-responsive"></div>
+			             <div class="col-md-3  form-group">
+			             	<button id="signupPrevious" type="button" class="btn btn-success pull-left">Previous</button>
+			             </div>
+			             
+			             <div class="col-md-3 form-group">
+			                 <button type="submit" class="btn btn-success pull-right"> Register</button>
+			             </div>
+			         </div>
+			         
+		         </div>
+		          
+		     </form>
+		 </div>
+		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>
+	</body>
+</html>

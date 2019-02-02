@@ -1,0 +1,34 @@
+<!-- This page displays the all the shared properties. -->
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="template::headerFiles"></head>
+	<body>
+		<nav th:replace="template::navbar"></nav>
+		<div class="container-fluid">
+			<div class="row well">
+				<div class="col-md-12 form-inline">
+					<h3 class ="form-group formHeading">Shared Properties</h3>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-8 form-inline">
+			<h4 class ="form-group formHeading">Looking for a shared apartment that matches your roommate preferences? </h4>
+		</div>
+		<div class="col-md-2">
+	  		<a th:href="@{'/sharedProperties/search'}" class="btn btn-info btn-block btnFont">Click Here</a>
+	  	</div>	
+	  	<div class="col-md-1"></div>
+	</div>
+		<div style="height:10px"></div>
+		<div th:replace="template::propertiesGrid"></div>
+		
+		<div style="height:10px"></div>
+		<button th:replace="template :: scrollToTop"></button>
+		<footer th:replace ="template :: footer"></footer>
+		
+	</body>
+</html>

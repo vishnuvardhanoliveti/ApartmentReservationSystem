@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template::headerFiles">
+<title></title>
+</head>
+<body>
+<nav th:replace ="template :: navbar"></nav>
+	<div class="container-fluid">
+		<div class="row well">
+			<div class="col-md-12 form-inline">
+				<h3 class ="form-group formHeading">Applications</h3>
+			</div>
+		</div>
+	</div>
+	<div th:each="applic : ${backgroundUpdate}" class="container panel panel-primary">
+		<div class="row panel-heading">
+			<div class="col-md-12 ">
+				<h3 class="panel-title titleFont" th:text="' Lease Application for property '+${propertyname}"></h3>
+			</div>
+		</div>
+		<div style="height:30px"></div>
+		<form class="form-horizontal" role="form">
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="firstName">First Name</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="firstname"
+		                                th:placeholder="${applic.getFirstname()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="lastName">Last Name</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="lastName"
+		                                th:placeholder="${applic.getLastname()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="email">Email</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getEmail()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="address">Address</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="email"
+		                                th:placeholder="${applic.getAddress()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">SSN</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="ssn"
+		                                th:placeholder="${applic.getSsn()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Phone no</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="phone"
+		                                th:placeholder="${applic.getPhonenumber()}" disabled>
+		        </div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Date of Birth</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="dob"
+		                                th:placeholder="${applic.getDob()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Ethnicity</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="ethnicity"
+		                                th:placeholder="${applic.getEthnicity()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Occupation</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="occupation"
+		                                th:placeholder="${applic.getOccupation()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Pets</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="pets"
+		                                th:placeholder="${applic.getPets()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Salary</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="salary"
+		                                th:placeholder="${applic.getSalary()}" disabled>
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="ssn">Smoking Habit</label>
+				</div>
+				<div class="col-md-8 form-group">
+		                <input type="text" class="form-control" id="smokinghabit"
+		                                th:placeholder="${applic.getSmokinghabit()}" disabled>
+		        </div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="otherRoommates">Other Roommates</label>
+				</div>
+				<div class="col-md-8 form-group">
+		            <div th:switch="${otherroomate}">
+					  	<span th:case="'no'">
+					  		<input type="text" class="form-control" id="otherRoommates" th:placeholder="None" disabled>
+					  	</span>
+					  	<span th:case="'1'">
+					  		<div class="form-horizontal"> 
+					 			<div class="row">
+					 				<div class="col-md-4 field-label-responsive">
+					 					<label for="roommate1" th:text="${applic.getFirstname_rm1()}"></label>
+					 				</div>
+					 				<div class="col-md-8 form-group">
+					 					<span th:switch="${appnotavail}">
+						 					<span th:case="'no'">
+						 						<button class="form-control" id="otherRoommates"><a th:href="@{'/applicationsDetails/' + ${applic.getEmailid_rm1()}}">View Application</a></button>
+						 					</span>
+		
+										 	<span th:case="'yes'">
+										 		<input type="text" class="form-control" id="otherRoommates" placeholder="Not Yet Applied" disabled>
+										 	</span>
+									 	</span>	
+					 				</div>
+					 			</div>	 				
+					 		</div>
+					 	</span>
+					 	<span th:case="'2'">
+					 		<div class="form-horizontal"> 
+					 			<div class="row">
+					 				<div class="col-md-4 field-label-responsive">
+					 					<label for="roommate1" th:text="${applic.getFirstname_rm1()}"></label>
+					 				</div>
+					 				<div class="col-md-8 form-group">
+					 					<span th:switch="${appnotavail1}">
+						 					<span th:case="'no'">
+						 						<button class="form-control" id="otherRoommates"><a th:href="@{'/applicationsDetails/' + ${applic.getEmailid_rm1()}}">View Application</a></button>
+						 					</span>
+		
+										 	<span th:case="'yes'">
+										 		<input type="text" class="form-control" id="otherRoommates" placeholder="Not Yet Applied" disabled>
+										 	</span>
+									 	</span>	
+					 				</div>
+					 			</div>	 				
+					 		</div>
+				 			
+				 			<div class="form-horizontal"> 
+					 			<div class="row">
+					 				<div class="col-md-4 field-label-responsive">
+					 					<label for="roommate2" th:text="${applic.getFirstname_rm2()}"></label>
+					 				</div>
+					 				<div class="col-md-8 form-group">
+					 					<span th:switch="${appnotavail1}">
+						 					<span th:case="'no'">
+						 						<button class="form-control" id="otherRoommates"><a th:href="@{'/applicationsDetails/' + ${applic.getEmailid_rm2()}}">View Application</a></button>
+						 					</span>
+		
+										 	<span th:case="'yes'">
+										 		<input type="text" class="form-control" id="otherRoommates" placeholder="Not Yet Applied" disabled>
+										 	</span>
+									 	</span>	
+					 				</div>
+					 			</div>	 				
+					 		</div>
+					    </span>
+					</div>    
+		        </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4 field-label-responsive">
+					<label for="applicationStatus">Application Status</label>
+				</div>
+				<div class="col-md-8 form-group">                         	
+		        	<span th:switch="${display_appstatus}">
+						<span th:case="'yes'">
+							<input type="text" class="form-control" id="applicationStatus" th:placeholder="${applic.getApp_bgc_status()}" disabled>
+						</span>
+						<span th:case="'no'">
+							<div class="form-horizontal"> 
+					 			<div class="row">
+					 				<div class="col-md-4 field-label-responsive">
+					 					<label for="applicationStatus" th:text="${applic.getApp_bgc_status()}"></label>
+					 				</div>
+					 				<div class="col-md-3 form-group">
+						 				<a class="form-control btn btn-success btn-block" id="applicationStatus" th:href="@{'/ownersign/' + ${applic.getEmail()}+'/'+accepted}">Accept</a>	
+					 				</div>
+					 				<div class="col-md-2"></div>
+					 				<div class="col-md-3 form-group">
+						 				<a class="form-control btn btn-danger btn-block" id="applicationStatus" th:href="@{'/ownersign/' + ${applic.getEmail()}+'/'+rejected}">Reject</a>	
+					 				</div>
+					 			</div>	 				
+					 		</div> 
+	   					</span>
+					</span>
+		        </div>
+			</div>			
+			<div th:switch="${downloadpdf}">
+				<span th:case="'yes'">
+					<div class="row">
+						<div class="col-md-4 field-label-responsive">
+							<label for="options">Options</label>
+						</div>
+						<div class="col-md-8 form-group">
+				                <a id="options" class="btn btn-primary btn-block" th:href="@{'../LeasingDocument/'+${docname}}" download target="_blank">Download Lease Document</a>
+				        </div>
+					</div>
+				</span>						
+			</div>
+					
+			
+			
+		</form>
+	</div>
+<div style="height:10px"></div>
+<button th:replace="template :: scrollToTop"></button>
+<footer th:replace ="template :: footer"></footer>	
+</body>
+</html>
